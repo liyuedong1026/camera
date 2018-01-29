@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets multimedia
+QT += qml quick widgets multimedia multimediawidgets
 
 SOURCES += main.cpp
 
@@ -11,3 +11,9 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+
+SOURCES += \
+    CameraView.cpp
+
+HEADERS += \
+    CameraView.h
