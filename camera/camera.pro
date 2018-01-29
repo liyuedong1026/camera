@@ -2,7 +2,8 @@ TEMPLATE = app
 
 QT += qml quick widgets multimedia multimediawidgets
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    MainScreen.cpp
 
 RESOURCES += qml.qrc
 
@@ -16,4 +17,5 @@ SOURCES += \
     CameraView.cpp
 
 HEADERS += \
-    CameraView.h
+    CameraView.h \
+    MainScreen.h

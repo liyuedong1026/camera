@@ -1,5 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
+import MainScreen 1.0
 
 ApplicationWindow {
     id:camera
@@ -7,6 +8,7 @@ ApplicationWindow {
     width: 640
     height: 480
     title: qsTr("Test")
+    color: "red"
 
     menuBar: MenuBar {
         Menu {
@@ -23,42 +25,44 @@ ApplicationWindow {
         }
     }
 
-//    Text {
-//        text: qsTr("Test")
-//        anchors.centerIn: parent
-//    }
-
-    Button {
-        id: opencamera
-        objectName: "open"
-        text: qsTr("open")
-        x: 100
-        y: 0
+    MainScreen {
+        anchors.fill: parent
+        id: mainscreen1
+        objectName: "mainscreen"
     }
 
     Button {
-        id: capture
-        objectName: "capture"
-        text: qsTr("capture")
-        x: 200
-        y: 0
-    }
+         id: opencamera
+         objectName: "open"
+         text: qsTr("open")
+         x: 100
+         y: 0
+     }
 
-    Button {
-        id: save
-        objectName: "save"
-        text: qsTr("save")
-        x: 300
-        y: 0
-    }
+     Button {
+         id: capture
+         objectName: "capture"
+         text: qsTr("capture")
+         x: 200
+         y: 0
+     }
 
-    Label {
-        id: showcamera
-        objectName: "showcamera"
-        text: qsTr("showcamera")
-        x: 200
-        y: 200
-        width: 200
-        height: 200
-    }
+     Button {
+         id: save
+         objectName: "save"
+         text: qsTr("save")
+         x: 300
+         y: 0
+     }
+
+     Label {
+         id: showcamera
+         objectName: "showcamera"
+         text: qsTr("showcamera")
+         x: 200
+         y: 200
+         width: 200
+         height: 200
+         color: "blue"
+     }
 }
