@@ -1,5 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
+import QtMultimedia 5.8
 
 ApplicationWindow {
     id:camera
@@ -52,14 +53,27 @@ ApplicationWindow {
          onClicked: mainfunction.onBtnSaveClicked()
      }
 
-     Label {
-         id: showcamera
-         objectName: "showcamera"
-         text: qsTr("showcamera")
-         x: 200
-         y: 200
+     Rectangle {
+         id: rectangle
+         objectName: "rectangle"
+         x: 175
+         y: 117
          width: 200
          height: 200
-         color: "blue"
+         color: "#ffffff"
+         anchors.bottomMargin: 163
+         anchors.bottom: parent.bottom
      }
+
+//     Label {
+//         id: showcamera
+//         objectName: "showcamera"
+//         text: qsTr("showcamera")
+//         x: 200
+//         y: 200
+//         width: 200
+//         height: 200
+//         color: "blue"
+
+//     }
 }

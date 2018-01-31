@@ -3,8 +3,8 @@ TEMPLATE = app
 QT += qml quick widgets multimedia multimediawidgets
 
 SOURCES += main.cpp \
-    CameraView.cpp \
-    MainFunction.cpp
+    MainFunction.cpp \
+    CameraView.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,5 +15,5 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    CameraView.h \
-    MainFunction.h
+    MainFunction.h \
+    CameraView.h

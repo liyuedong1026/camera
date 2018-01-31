@@ -5,26 +5,30 @@
 #include <QCamera>
 #include <QCameraViewfinder>
 #include <QCameraImageCapture>
+#include <QLayout>
 
 class CameraView : public QObject
 {
+    Q_OBJECT
 public:
-    CameraView();
-    ~CameraView();
-
-public slots:
-    void initCamera();
-    void startCamera();
-
-    void startCaptureImage();
-    void saveCaptureImage();
-
-    void cameraImageCaptured(int id, QImage image);
+    explicit CameraView(QObject *parent = nullptr);
+    void setViewWidget(QLayout *layout);
 
 signals:
     void signal_buttonOpen();
     void signal_buttonCapture();
     void signal_buttonSave();
+
+public slots:
+    void initCamera();
+    void startCamera();
+    void startCaptureImage();
+    void saveCaptureImage();
+    void cameraImageCaptured(int id, QImage image);
+
+    void onButtonOpen();
+    void onButtonCapture();
+    void onButtonSave();
 
 private:
     QCamera* m_pCamera;                        // camera
