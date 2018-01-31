@@ -2,6 +2,7 @@
 #define MAINFUNCTION_H
 
 #include <QObject>
+#include <CameraView.h>
 
 class MainFunction : public QObject
 {
@@ -17,6 +18,8 @@ signals:
 
 public slots:
 
+private:
+    CameraView* m_cameraView;
 };
 
 #endif // MAINFUNCTION_H

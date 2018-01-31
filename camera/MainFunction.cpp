@@ -3,6 +3,7 @@
 
 MainFunction::MainFunction(QObject *parent) :
     QObject(parent)
+  , m_cameraView(new CameraView())
 {
 
 }
@@ -10,6 +11,8 @@ MainFunction::MainFunction(QObject *parent) :
 void MainFunction::onBtnOpenClicked()
 {
     qDebug() << "onBtnOpenClicked";
+    m_cameraView->initCamera();
+    m_cameraView->startCamera();
 }
 
 void MainFunction::onBtnCaptureClicked()

@@ -12,14 +12,19 @@ public:
     CameraView();
     ~CameraView();
 
+public slots:
     void initCamera();
     void startCamera();
 
     void startCaptureImage();
     void saveCaptureImage();
 
-public slots:
     void cameraImageCaptured(int id, QImage image);
+
+signals:
+    void signal_buttonOpen();
+    void signal_buttonCapture();
+    void signal_buttonSave();
 
 private:
     QCamera* m_pCamera;                        // camera
