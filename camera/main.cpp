@@ -13,11 +13,10 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-//    qmlRegisterType<MainFunction>("function_main", 1, 0, "MainFunction");
     QQmlApplicationEngine engine;
 
     if (NULL != engine.rootContext()) {
-        engine.rootContext()->setContextProperty("test", new MainFunction);
+        engine.rootContext()->setContextProperty("mainfunction", new MainFunction);
     }
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));

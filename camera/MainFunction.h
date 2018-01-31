@@ -13,7 +13,6 @@ public:
     Q_INVOKABLE void onBtnCaptureClicked();
     Q_INVOKABLE void onBtnSaveClicked();
 
-
 signals:
 
 public slots:

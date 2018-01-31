@@ -31,7 +31,7 @@ ApplicationWindow {
          text: qsTr("open")
          x: 100
          y: 0
-         onClicked: test.onBtnOpenClicked();
+         onClicked: mainfunction.onBtnOpenClicked();
      }
 
      Button {
@@ -40,7 +40,7 @@ ApplicationWindow {
          text: qsTr("capture")
          x: 200
          y: 0
-         onClicked: test.onBtnCaptureClicked()
+         onClicked: mainfunction.onBtnCaptureClicked()
      }
 
      Button {
@@ -49,7 +49,7 @@ ApplicationWindow {
          text: qsTr("save")
          x: 300
          y: 0
-         onClicked: test.onBtnSaveClicked()
+         onClicked: mainfunction.onBtnSaveClicked()
      }
 
      Label {
