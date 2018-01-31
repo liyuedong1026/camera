@@ -1,36 +1,27 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QPushButton>
+#include <QLabel>
+#include <QObject>
+#include <QQmlComponent>
+#include <QQmlContext>
 #include <QDebug>
-#include "MainScreen.h"
+#include <QQuickView>
+#include "MainFunction.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    qmlRegisterType<MainScreen>("MainScreen", 1, 0, "MainScreen");
+//    qmlRegisterType<MainFunction>("function_main", 1, 0, "MainFunction");
     QQmlApplicationEngine engine;
+
+    if (NULL != engine.rootContext()) {
+        engine.rootContext()->setContextProperty("test", new MainFunction);
+    }
+
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
-    QObject *rootObject = engine.rootObjects().first();
-    if (NULL != rootObject) {
-        QObject *button = rootObject->findChild<QObject*>("save");
-        if (button) {
-            qDebug() << "123";
-            //        button->setText("123");
-        }
-        else {
-            qDebug() << "456";
-        }
-
-        QObject *screen = rootObject->findChild<QObject*>("mainscreen");
-        if (screen) {
-            qDebug() << "screen123";
-        }
-        else {
-            qDebug() << "screen456";
-        }
-    }
 
     return app.exec();
 }
