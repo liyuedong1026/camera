@@ -6,6 +6,7 @@
 #include <QCameraViewfinder>
 #include <QCameraImageCapture>
 #include <QLayout>
+#include <QCameraInfo>
 
 class CameraView : public QObject
 {
@@ -13,6 +14,7 @@ class CameraView : public QObject
 public:
     explicit CameraView(QObject *parent = 0);
     void setViewWidget(QLayout *layout);
+    void cameraDevices();
 
 signals:
     void signal_buttonOpen();
