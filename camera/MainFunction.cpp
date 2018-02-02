@@ -1,9 +1,8 @@
 #include "MainFunction.h"
 #include <QDebug>
 
-MainFunction::MainFunction(QQmlApplicationEngine *engine, QObject *parent) :
+MainFunction::MainFunction(QObject *parent) :
     QObject(parent)
-  , m_appEngine(engine)
   , m_cameraView(new CameraView())
 {
 
@@ -12,31 +11,32 @@ MainFunction::MainFunction(QQmlApplicationEngine *engine, QObject *parent) :
 void MainFunction::onBtnOpenClicked()
 {
     qDebug() << "MainFunction::onBtnOpenClicked";
-    m_cameraView->onButtonOpen();
+    if (NULL != m_cameraView) {
+        m_cameraView->onButtonOpen();
+    }
 }
 
 void MainFunction::onBtnCaptureClicked()
 {
     qDebug() << "MainFunction::onBtnCaptureClicked";
-    m_cameraView->onButtonCapture();
+    if (NULL != m_cameraView) {
+        m_cameraView->onButtonCapture();
+    }
 }
 
 void MainFunction::onBtnSaveClicked()
 {
     qDebug() << "MainFunction::onBtnSaveClicked";
-    m_cameraView->onButtonSave();
+    if (NULL != m_cameraView) {
+        m_cameraView->onButtonSave();
+    }
 }
 
-void MainFunction::setCameraLable()
+void MainFunction::setCameraLable(QLayout *layout)
 {
     qDebug() << "MainFunction::setCameraLable";
-    if (NULL != m_appEngine) {
-        QObject* root = m_appEngine->rootObjects().first();
-
-        QObject* cameraLable = root->findChild<QObject*>("showcamera");
-        if (cameraLable) {
-
-        }
+    if (NULL != m_cameraView) {
+        m_cameraView->setViewWidget(layout);
     }
 }
 

@@ -11,7 +11,7 @@ class CameraView : public QObject
 {
     Q_OBJECT
 public:
-    explicit CameraView(QObject *parent = nullptr);
+    explicit CameraView(QObject *parent = 0);
     void setViewWidget(QLayout *layout);
 
 signals:
