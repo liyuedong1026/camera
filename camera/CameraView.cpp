@@ -9,7 +9,6 @@ CameraView::CameraView(QObject *parent) :
   , m_pImageCapture(NULL)
   , m_saveImage(NULL)
 {
-    cameraDevices();
     initCamera();
     connect(this, SIGNAL(signal_buttonOpen()), this, SLOT(startCamera()), Qt::UniqueConnection);
     connect(this, SIGNAL(signal_buttonCapture()), this, SLOT(startCaptureImage()), Qt::UniqueConnection);
@@ -21,18 +20,21 @@ void CameraView::setViewWidget(QLayout *layout)
     layout->addWidget(m_pViewFinder);
 }
 
-void CameraView::cameraDevices()
+void CameraView::setCameraDevicesName(const QCameraInfo &info)
 {
-    qDebug() << "CameraView::cameraDevices";
-    QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
-    foreach (const QCameraInfo &cameraInfo, cameras) {
-        qDebug() << cameraInfo.deviceName();
-    }
+    m_strCameraInfo = info;
 }
 
 void CameraView::initCamera()
 {
     qDebug() << "CameraView::initCamera";
+
+    if (m_strCameraInfo.isNull()) {
+        m_pCamera = new QCamera();
+    }
+    else {
+        m_pCamera = new QCamera(m_strCameraInfo);
+    }
 
     m_pCamera = new QCamera();
     m_pViewFinder = new QCameraViewfinder();

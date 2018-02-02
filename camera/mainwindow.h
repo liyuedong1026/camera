@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QComboBox>
 #include "MainFunction.h"
 
 namespace Ui {
@@ -23,9 +24,14 @@ private slots:
 
     void on_btnSave_clicked();
 
+    void on_btnLoad_clicked();
+
+    void onDeviceNameChange(QString deviceName);
+
 private:
     Ui::MainWindow *ui;
     MainFunction* m_maiFunction;
+    QComboBox* m_comboxDevice;
 };
 
 #endif // MAINWINDOW_H

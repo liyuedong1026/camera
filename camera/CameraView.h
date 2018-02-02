@@ -14,7 +14,7 @@ class CameraView : public QObject
 public:
     explicit CameraView(QObject *parent = 0);
     void setViewWidget(QLayout *layout);
-    void cameraDevices();
+    void setCameraDevicesName(const QCameraInfo& info);
 
 signals:
     void signal_buttonOpen();
@@ -37,6 +37,7 @@ private:
     QCameraViewfinder* m_pViewFinder;          // view finder
     QCameraImageCapture* m_pImageCapture;      // capture image
     QImage* m_saveImage;
+    QCameraInfo m_strCameraInfo;
 };
 
 #endif // CAMERAVIEW_H

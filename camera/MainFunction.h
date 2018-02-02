@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <CameraView.h>
+#include <QCameraInfo>
 
 class MainFunction : public QObject
 {
@@ -14,8 +15,10 @@ public:
     void onBtnCaptureClicked();
     void onBtnSaveClicked();
     void setCameraLable(QLayout *layout);
-    CameraView *cameraView();
+    void setCameraInfo(const QCameraInfo& info);
 
+    CameraView *cameraView();
+    QList<QCameraInfo> cameraDevices();
 signals:
 
 public slots:

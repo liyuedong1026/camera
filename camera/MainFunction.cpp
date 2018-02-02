@@ -40,7 +40,20 @@ void MainFunction::setCameraLable(QLayout *layout)
     }
 }
 
+void MainFunction::setCameraInfo(const QCameraInfo &info)
+{
+    if (NULL != m_cameraView) {
+        m_cameraView->setCameraDevicesName(info);
+    }
+}
+
 CameraView *MainFunction::cameraView()
 {
     return m_cameraView;
+}
+
+QList<QCameraInfo> MainFunction::cameraDevices()
+{
+    QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
+    return cameras;
 }
