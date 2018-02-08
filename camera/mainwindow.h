@@ -26,7 +26,7 @@ private slots:
 
     void on_btnLoad_clicked();
 
-    void onDeviceNameChange(QString deviceName);
+    void onDeviceNameChange(QString description);
 
 private:
     Ui::MainWindow *ui;

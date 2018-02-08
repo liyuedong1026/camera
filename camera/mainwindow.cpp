@@ -48,17 +48,17 @@ void MainWindow::on_btnLoad_clicked()
     if (NULL != m_maiFunction && NULL != m_comboxDevice) {
         QList<QCameraInfo> cameras = m_maiFunction->cameraDevices();
         for (int i = 0; i < cameras.size(); i++) {
-            m_comboxDevice->insertItem(i, cameras.at(i).deviceName());
+            m_comboxDevice->insertItem(i, cameras.at(i).description());
         }
     }
 }
 
-void MainWindow::onDeviceNameChange(QString deviceName)
+void MainWindow::onDeviceNameChange(QString description)
 {
     if (NULL != m_maiFunction) {
         QList<QCameraInfo> cameras = m_maiFunction->cameraDevices();
         foreach (QCameraInfo info, cameras) {
-            if (info.deviceName() == deviceName) {
+            if (info.description() == description) {
                 m_maiFunction->setCameraInfo(info);
                 return;
             }

@@ -1,4 +1,5 @@
 #include "CameraView.h"
+#include <QTime>
 
 
 
@@ -74,7 +75,9 @@ void CameraView::saveCaptureImage()
 {
     qDebug() << "CameraView::saveCaptureImage";
     if (NULL != m_saveImage) {
-        m_saveImage->save("test.jpg");
+        QString strTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
+        strTime.append(".jpg");
+        m_saveImage->save(strTime);
         delete m_saveImage;
         m_saveImage = NULL;
     }
